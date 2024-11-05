@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Credit Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>Credit Prediction Form</h2>
+        <form action="/predict" method="post">
+            <div>
+                <label for="age">Age:</label>
+                <input type="text" id="age" name="age" required>
+            </div>
+            <div>
+                <label for="job">Job:</label>
+                <select id="job" name="job" required>
+                    <option value="manager">Manager</option>
+                    <option value="technician">Technician</option>
+                    <option value="clerk">Clerk</option>
+                    <!-- Add more options as needed -->
+                </select>
+            </div>
+            <div>
+                <label for="credit_amount">Credit Amount:</label>
+                <input type="text" id="credit_amount" name="credit_amount" required>
+            </div>
+            <div>
+                <label for="duration">Duration (months):</label>
+                <input type="text" id="duration" name="duration" required>
+            </div>
+            <div>
+                <label for="housing">Housing:</label>
+                <select id="housing" name="housing" required>
+                    <option value="own">Own</option>
+                    <option value="rent">Rent</option>
+                    <option value="free">Free</option>
+                </select>
+            </div>
+            <div>
+                <label for="saving_accounts">Saving Accounts:</label>
+                <select id="saving_accounts" name="saving_accounts" required>
+                    <option value="little">Little</option>
+                    <option value="moderate">Moderate</option>
+                    <option value="rich">Rich</option>
+                </select>
+            </div>
+            <div>
+                <label for="checking_account">Checking Account:</label>
+                <select id="checking_account" name="checking_account" required>
+                    <option value="little">Little</option>
+                    <option value="moderate">Moderate</option>
+                    <option value="rich">Rich</option>
+                </select>
+            </div>
+            <div>
+                <label for="purpose">Purpose:</label>
+                <select id="purpose" name="purpose" required>
+                    <option value="car">Car</option>
+                    <option value="furniture">Furniture</option>
+                    <option value="radio/tv">Radio/TV</option>
+                    <!-- Add more options as needed -->
+                </select>
+            </div>
+            <button type="submit">Predict</button>
+        </form>
+        {% if result %}
+            <p>{{ result }}</p>
+        {% endif %}
+    </div>
+</body>
+</html>
